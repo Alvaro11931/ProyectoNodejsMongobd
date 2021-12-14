@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostIn</title>
+    <%- include("partials/head")%>
+</head>
+<body>
+    
+    <%= include("partials/navigation")%>
+
+    <div class="container p-4">
+        <div class="row col-md-4 offset-md-4">
+            <div class="card-columns">
+                <% images.forEach(function (image) {%>
+                    <div class="card animated fadeInDown" >
+                        <img src="<%= image.path %>" class="card-img-top">
+                        <div class="car-body">
+                            <h5 class="cars-title offset-md-1"><%= image.title%></h5>
+                            <p class="card.text offset-md-1"><%= image.description%></p>
+                            <p class="card-text offset-md-1"><%= format(image.crated_at)%></p>
+                            <a href = "/image/<%= image._id%>"  class="btn btn-primary offset-md-1">View</a>
+                        </div>
+                    </div>    
+                <% })%>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
